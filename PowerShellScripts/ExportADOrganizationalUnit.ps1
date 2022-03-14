@@ -13,7 +13,7 @@ Set-Location C:
 
 # Limpeza da tabela de STAGE que reseberá os dados brutos
  $SQLQueryDelete = "USE $SQLDatabase
-    TRUNCATE TABLE [AD].[STGADDomainController]"
+    TRUNCATE TABLE [AD].[STGADOrganizationalUnit]"
 
 $SQLQuery1Output = Invoke-Sqlcmd -query $SQLQueryDelete -ServerInstance $SQLInstance
 
@@ -37,7 +37,7 @@ ForEach($Inicial in $Iniciais){
 
 try{
 
- $Usrs = Get-ADDomainController -Filter {Name -like $Inicial} | Select Name, HostName, ipv4Address, OperatingSystem, OperatingSystemVersion, site, Enabled  -ErrorAction stop
+ $Usrs = Get-ADOrganizationalUnit -f {Name -like $Inicial}  | SELECT ObjectGUID, Name, ObjectClass, DistinguishedName, ManagedBy -ErrorAction stop
 
 }catch{
 Write-Output $Inicial
@@ -51,36 +51,33 @@ break
  
  #Para cada linha que a matriz percorre e inserido o valor na variável de destino.
 
+    $ObjectGUID = $Usr.ObjectGUID
+
     if ($Usr.Name){      
         $Lipemza = $Usr.Name         
         $Name = $Lipemza.replace("'","")	 
     }else{$Name = $Usr.Name}
 
-    if ($Usr.HostName){      
-        $Lipemza = $Usr.HostName
-	    $HostName = $Lipemza.replace("'","")
-    }else{$HostName = $Usr.HostName}
+    $ObjectClass = $Usr.ObjectClass
 
-    $IPv4Address = $Usr.IPv4Address
+    if ($Usr.DistinguishedName){      
+        $Lipemza = $Usr.DistinguishedName         
+        $DistinguishedName = $Lipemza.replace("'","")	 
+    }else{$DistinguishedName = $Usr.DistinguishedName}
 
-    $OperatingSystem = $Usr.OperatingSystem
-
-    $OperatingSystemVersion = $Usr.OperatingSystemVersion
-
-    $site = $Usr.site
-
-    $Enabled = $Usr.Enabled
+    if ($Usr.ManagedBy){      
+        $Lipemza = $Usr.ManagedBy         
+        $ManagedBy = $Lipemza.replace("'","")	 
+    }else{$ManagedBy = $Usr.ManagedBy}
 
 
 #A variável "$SQLQuery" receberar o insert com os dados para ser executado no banco
 $SQLQuery = "USE $SQLDatabase
-INSERT INTO [AD].[STGADDomainController]
-           ([Name],[HostName],[IPv4Address]
-           ,[OperatingSystem],[OperatingSystemVersion],[Site]
-           ,[Enabled],[LastUpdateEtl])
-VALUES ('$Name','$HostName','$IPv4Address'
-       ,'$OperatingSystem','$OperatingSystemVersion','$Site'
-       ,'$Enabled','$LastUpdateEtl');"
+INSERT INTO [AD].[STGADOrganizationalUnit]
+           ([ObjectGUID],[Name],[ObjectClass]
+           ,[DistinguishedName],[ManagedBy])
+VALUES     ('$ObjectGUID','$Name','$ObjectClass'
+           ,'$DistinguishedName','$ManagedBy');"
 
 
 #Executa o comando de insert com os dados

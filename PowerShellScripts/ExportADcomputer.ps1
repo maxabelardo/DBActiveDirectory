@@ -4,7 +4,7 @@
 # O script foi criado para ser executado de dentro de um JOB do agent do SQL Server.
 
 #Variáveis do servido e banco de dados
-$SQLInstance = "P-SRV0118"
+$SQLInstance = "S-SEBN2611"
 $SQLDatabase = "DBActiveDirectory"
 
 #Parametro necessário para execução do script dentro do job
@@ -114,11 +114,11 @@ INSERT INTO [AD].[STGADComputer]
            ,[CanonicalName],[Enabled],[IPv4Address]
            ,[Created],[Deleted],[Modified],[LastLogonDate],[logonCount],[PasswordExpired]
            ,[PasswordLastSet],[AuthenticationPolicy])
-VALUES ('$SID','$Name','$DisplayName','$SamAccountName','$Description','$MemberOf',
-        '$OperatingSystem','$OperatingSystemHotfix','$OperatingSystemServicePack','$OperatingSystemVersion',
-        '$CanonicalName','$Enabled','$IPv4Address',
-        '$Created','$Deleted','$Modified','$LastLogonDate','$logonCount','$PasswordExpired',
-        '$PasswordLastSet','$AuthenticationPolicy');"
+VALUES ('$SID','$Name','$DisplayName','$SamAccountName','$Description','$ObjectClass','$PrimaryGroup','$MemberOf'
+        ,'$OperatingSystem','$OperatingSystemHotfix','$OperatingSystemServicePack','$OperatingSystemVersion'
+        ,'$CanonicalName','$Enabled','$IPv4Address'
+        ,'$Created','$Deleted','$Modified','$LastLogonDate','$logonCount','$PasswordExpired'
+        ,'$PasswordLastSet','$AuthenticationPolicy');"
 
 
 #Executa o comando de insert com os dados

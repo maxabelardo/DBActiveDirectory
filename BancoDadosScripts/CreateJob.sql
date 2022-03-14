@@ -1,11 +1,11 @@
 USE [msdb]
 GO
 
-/****** Object:  Job [DBActiveDirectory]    Script Date: 30/11/2021 00:31:33 ******/
+/****** Object:  Job [DBActiveDirectory]    Script Date: 14/03/2022 14:03:17 ******/
 BEGIN TRANSACTION
 DECLARE @ReturnCode INT
 SELECT @ReturnCode = 0
-/****** Object:  JobCategory [[Uncategorized (Local)]]    Script Date: 30/11/2021 00:31:33 ******/
+/****** Object:  JobCategory [[Uncategorized (Local)]]    Script Date: 14/03/2022 14:03:18 ******/
 IF NOT EXISTS (SELECT name FROM msdb.dbo.syscategories WHERE name=N'[Uncategorized (Local)]' AND category_class=1)
 BEGIN
 EXEC @ReturnCode = msdb.dbo.sp_add_category @class=N'JOB', @type=N'LOCAL', @name=N'[Uncategorized (Local)]'
@@ -25,7 +25,7 @@ EXEC @ReturnCode =  msdb.dbo.sp_add_job @job_name=N'DBActiveDirectory',
 		@category_name=N'[Uncategorized (Local)]', 
 		@owner_login_name=N'D_SEDE\admin-abelardo', @job_id = @jobId OUTPUT
 IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
-/****** Object:  Step [ExportADUser]    Script Date: 30/11/2021 00:31:33 ******/
+/****** Object:  Step [ExportADUser]    Script Date: 14/03/2022 14:03:18 ******/
 EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N'ExportADUser', 
 		@step_id=1, 
 		@cmdexec_success_code=0, 
@@ -199,7 +199,7 @@ $Usrs.clear
 		@database_name=N'master', 
 		@flags=0
 IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
-/****** Object:  Step [ExportADGroup]    Script Date: 30/11/2021 00:31:33 ******/
+/****** Object:  Step [ExportADGroup]    Script Date: 14/03/2022 14:03:18 ******/
 EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N'ExportADGroup', 
 		@step_id=2, 
 		@cmdexec_success_code=0, 
@@ -362,7 +362,7 @@ $Usrs.clear
 		@database_name=N'master', 
 		@flags=0
 IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
-/****** Object:  Step [ExportComputer]    Script Date: 30/11/2021 00:31:33 ******/
+/****** Object:  Step [ExportComputer]    Script Date: 14/03/2022 14:03:18 ******/
 EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N'ExportComputer', 
 		@step_id=3, 
 		@cmdexec_success_code=0, 
@@ -512,7 +512,7 @@ $Usrs.clear
 		@database_name=N'master', 
 		@flags=0
 IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
-/****** Object:  Step [ExportADDomainController]    Script Date: 30/11/2021 00:31:33 ******/
+/****** Object:  Step [ExportADDomainController]    Script Date: 14/03/2022 14:03:18 ******/
 EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N'ExportADDomainController', 
 		@step_id=4, 
 		@cmdexec_success_code=0, 
@@ -624,7 +624,7 @@ $Usrs.clear
 		@database_name=N'master', 
 		@flags=0
 IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
-/****** Object:  Step [ExportADOrganizationalUnit]    Script Date: 30/11/2021 00:31:33 ******/
+/****** Object:  Step [ExportADOrganizationalUnit]    Script Date: 14/03/2022 14:03:18 ******/
 EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N'ExportADOrganizationalUnit', 
 		@step_id=5, 
 		@cmdexec_success_code=0, 
@@ -733,7 +733,7 @@ $Usrs.clear
 		@database_name=N'master', 
 		@flags=0
 IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
-/****** Object:  Step [ExportADcontact]    Script Date: 30/11/2021 00:31:33 ******/
+/****** Object:  Step [ExportADcontact]    Script Date: 14/03/2022 14:03:18 ******/
 EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N'ExportADcontact', 
 		@step_id=6, 
 		@cmdexec_success_code=0, 
@@ -863,7 +863,7 @@ $Usrs.clear
 		@database_name=N'master', 
 		@flags=0
 IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
-/****** Object:  Step [ExportADGPO]    Script Date: 30/11/2021 00:31:33 ******/
+/****** Object:  Step [ExportADGPO]    Script Date: 14/03/2022 14:03:18 ******/
 EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N'ExportADGPO', 
 		@step_id=7, 
 		@cmdexec_success_code=0, 
@@ -975,7 +975,7 @@ $Usrs.clear
 		@database_name=N'master', 
 		@flags=0
 IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
-/****** Object:  Step [Cruzar Usuários com Grupos no AD]    Script Date: 30/11/2021 00:31:33 ******/
+/****** Object:  Step [Cruzar Usuários com Grupos no AD]    Script Date: 14/03/2022 14:03:18 ******/
 EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N'Cruzar Usuários com Grupos no AD', 
 		@step_id=8, 
 		@cmdexec_success_code=0, 
@@ -993,7 +993,7 @@ EXECUTE @RC = [dbo].[SP_GroupMember]
 		@database_name=N'DBActiveDirectory', 
 		@flags=0
 IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
-/****** Object:  Step [STGADOrganizationalUnitMember]    Script Date: 30/11/2021 00:31:33 ******/
+/****** Object:  Step [STGADOrganizationalUnitMember]    Script Date: 14/03/2022 14:03:18 ******/
 EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N'STGADOrganizationalUnitMember', 
 		@step_id=9, 
 		@cmdexec_success_code=0, 

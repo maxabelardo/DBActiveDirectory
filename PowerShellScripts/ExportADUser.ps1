@@ -4,7 +4,7 @@
 # O script foi criado para ser executado de dentro de um JOB do agent do SQL Server.
 
 #Variáveis do servido e banco de dados
-$SQLInstance = "P-SRV0118"
+$SQLInstance = "S-SEBN2611"
 $SQLDatabase = "DBActiveDirectory"
 
 #Parametro necessário para execução do script dentro do job
@@ -23,7 +23,14 @@ $SQLQuery1Output = Invoke-Sqlcmd -query $SQLQueryDelete -ServerInstance $SQLInst
 
 # Variável que vai receber os valores para pesquisa
 $Iniciais = 'a*','b*','c*','d*','e*','g*','h*',
-'i0*','i1*','i2*','i3*','i4*','i5*''i6*','i7*','i8*','i9*',
+'i0*','i1*','i2*','i3*','i4*',
+#'i505000*','i505001*',
+'i50501*','i50502*','i50503*','i50504*','i50505*','i50506*','i50507*','i50508*','i50509*',
+'i5051*','i5052*','i5053*','i5054*','i5055*','i5056*','i5057*','i5058*','i5059*',
+'i506*','i507*','i508*','i509*',
+'i51*','i52*','i53*','i54*','i55*','i56*','i57*','i58*','i59*',
+'i501*','i502*','i503*','i504*',
+'i6*','i7*','i8*','i9*',
 'j*','k*','l*','m*','n*','o*','p*','q*','r*','s*','t*','u*','x*','z*','w*',
 '1*','2*','3*','4*','5*','6*','7*','8*','9*','0*'
 
@@ -48,7 +55,8 @@ try{
     @{Name='LastLogonDate';Expression={$_.LastLogonDate.ToString("yyyy\/MM\/dd HH:mm:ss")}},
     EmailAddress,MobilePhone,msExchRemoteRecipientType,
 	ObjectClass,PasswordExpired,PasswordNeverExpires,PasswordNotRequired,Enabled,LockedOut,
-	CannotChangePassword  -ErrorAction stop
+	CannotChangePassword,
+    userAccountControl  -ErrorAction stop
 }catch{
 Write-Output $Inicial
 throw $_
@@ -120,7 +128,7 @@ break
 	$Enabled = $Usr.Enabled
 	$LockedOut = $Usr.LockedOut
 	$CannotChangePassword = $Usr.CannotChangePassword
-
+    $userAccountControl = $Usr.userAccountControl
 
 #A variável "$SQLQuery" receberar o insert com os dados para ser executado no banco
 $SQLQuery = "USE $SQLDatabase
@@ -129,12 +137,12 @@ INSERT INTO [AD].[STGADUser]
   ,[Office],[City],[DistinguishedName],[MemberOf],[createTimeStamp],[Deleted],[Modified],[PasswordLastSet],[AccountExpirationDate]
   ,[msExchWhenMailboxCreated],[LastLogonDate],[EmailAddress],[MobilePhone],[msExchRemoteRecipientType]
   ,[ObjectClass],[PasswordExpired],[PasswordNeverExpires],[PasswordNotRequired],[Enabled],[LockedOut]
-  ,[CannotChangePassword])
+  ,[CannotChangePassword],[userAccountControl])
 VALUES ('$SID','$Name','$DisplayName','$SamAccountName','$mail','$Title','$Department','$Description','$employeeType','$Company',
 	'$Office','$City','$DistinguishedName','$MemberOf','$createTimeStamp','$Deleted','$Modified','$PasswordLastSet','$AccountExpirationDate',
 	'$msExchWhenMailboxCreated','$LastLogonDate','$EmailAddress','$MobilePhone','$msExchRemoteRecipientType',
 	'$ObjectClass','$PasswordExpired','$PasswordNeverExpires','$PasswordNotRequired','$Enabled','$LockedOut',
-    '$CannotChangePassword');"
+    '$CannotChangePassword','$userAccountControl');"
 
 
 #Executa o comando de insert com os dados

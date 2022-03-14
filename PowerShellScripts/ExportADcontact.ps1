@@ -1,4 +1,4 @@
-﻿#
+#
 # Este script foi criado para extrair os usuários e suas informações do Active Directory e inserir elas 
 # em um servido de banco dados para futuro tratamento.
 # O script foi criado para ser executado de dentro de um JOB do agent do SQL Server.
@@ -13,7 +13,7 @@ Set-Location C:
 
 # Limpeza da tabela de STAGE que reseberá os dados brutos
  $SQLQueryDelete = "USE $SQLDatabase
-    TRUNCATE TABLE [AD].[STGADGroup]"
+    TRUNCATE TABLE [AD].[STGADcontact]"
 
 $SQLQuery1Output = Invoke-Sqlcmd -query $SQLQueryDelete -ServerInstance $SQLInstance
 
@@ -23,10 +23,7 @@ $SQLQuery1Output = Invoke-Sqlcmd -query $SQLQueryDelete -ServerInstance $SQLInst
 
 # Variável que vai receber os valores para pesquisa
 $Iniciais = 'a*','b*','c*','d*','e*','g*','h*',
-'i0*','i1*','i2*','i3*','i4*','i5*''i6*','i7*','i8*','i9*',
-'j*','k*','l*','m*','n*','o*','p*','q*','r*',
-'s_*','s0*','s1*','s2*','s3*','s4*','s5*','s6*','s7*','s8*','s9*',
-'t*','u*','x*','z*','w*',
+'i*','j*','k*','l*','m*','n*','o*','p*','q*','r*','s*','t*','u*','x*','z*','w*',
 '1*','2*','3*','4*','5*','6*','7*','8*','9*','0*'
 
 
@@ -39,12 +36,12 @@ ForEach($Inicial in $Iniciais){
 # A variável "$Usrs" é uma matriz que receberá o resultado do comando de extração dos usuários.
 
 try{
- $Usrs = Get-ADGroup -f {SamAccountName -like $Inicial} -Properties * | SELECT SID,Name,DisplayName,SamAccountName,Description,CanonicalName,DistinguishedName,
-    GroupCategory, Member, MemberOf, GroupScope,ObjectClass,
-    ProtectedFromAccidentalDeletion,
+
+ $Usrs = Get-ADObject -Filter {(objectClass -eq "contact") -and (cn -like $Inicial )} -Properties * | SELECT Name, DisplayName, mailNickname, mail,  CanonicalName, DistinguishedName,
     @{Name='Created';Expression={$_.Created.ToString("yyyy\/MM\/dd HH:mm:ss")}},
     @{Name='Deleted';Expression={$_.Deleted.ToString("yyyy\/MM\/dd HH:mm:ss")}},
-    @{Name='Modified';Expression={$_.Modified.ToString("yyyy\/MM\/dd HH:mm:ss")}}  -ErrorAction stop
+    @{Name='Modified';Expression={$_.Modified.ToString("yyyy\/MM\/dd HH:mm:ss")}} -ErrorAction stop
+
 }catch{
 Write-Output $Inicial
 throw $_
@@ -52,86 +49,56 @@ break
 }
 
 
-
 #Loop que será usuado para transferir os dados da matriz para o banco de dados
  ForEach($Usr in $Usrs){
  
  #Para cada linha que a matriz percorre e inserido o valor na variável de destino.
-	$SID = $Usr.SID
-
 
     if ($Usr.Name){      
         $Lipemza = $Usr.Name         
         $Name = $Lipemza.replace("'","")	 
     }else{$Name = $Usr.Name}
 
-
     if ($Usr.DisplayName){      
         $Lipemza = $Usr.DisplayName
 	    $DisplayName = $Lipemza.replace("'","")
     }else{$DisplayName = $Usr.DisplayName}
 
+    if ($Usr.mailNickname){      
+        $Lipemza = $Usr.mailNickname
+	    $mailNickname = $Lipemza.replace("'","")
+    }else{$mailNickname = $Usr.mailNickname}
 
-    if ($Usr.SamAccountName){      
-        $Lipemza = $Usr.SamAccountName
-	    $SamAccountName = $Lipemza.replace("'","")
-    }else{$DisplayName = $Usr.SamAccountName}
 
-
-    if ($Usr.Description){      
-        $Lipemza = $Usr.Description
-	    $Description = $Lipemza.replace("'","")
-    }else{$Description = $Usr.Description}	
-
+    if ($Usr.mail){      
+        $Lipemza = $Usr.mail
+	    $mail = $Lipemza.replace("'","")
+    }else{$mail = $Usr.mail}
 
     if ($Usr.CanonicalName){      
         $Lipemza = $Usr.CanonicalName
 	    $CanonicalName = $Lipemza.replace("'","")
-    }else{$Description = $Usr.CanonicalName}	
-
+    }else{$CanonicalName = $Usr.CanonicalName}
 
     if ($Usr.DistinguishedName){      
         $Lipemza = $Usr.DistinguishedName
 	    $DistinguishedName = $Lipemza.replace("'","")
-    }else{$Office = $Usr.DistinguishedName}
+    }else{$DistinguishedName = $Usr.DistinguishedName}
 
-
-	$GroupCategory = $Usr.GroupCategory
-
-    if ($Usr.member){      
-        $Lipemza = $Usr.member
-	    $member = $Lipemza.replace("'","")
-    }else{$member = $Usr.member}
-
-
-#$member = $Usr.member
-
-    if ($Usr.MemberOf){      
-        $Lipemza = $Usr.MemberOf
-	    $MemberOf = $Lipemza.replace("'","")
-    }else{$MemberOf = $Usr.MemberOf}
-
-#$MemberOf = $Usr.MemberOf
-
-	$GroupScope = $Usr.GroupScope
-	$ObjectClass = $Usr.ObjectClass
-	$ProtectedFromAccidentalDeletion = $Usr.ProtectedFromAccidentalDeletion
     $Created = $Usr.Created
-	$Deleted = $Usr.Deleted
 	$Modified = $Usr.Modified
+	$Deleted = $Usr.Deleted
 
 
 #A variável "$SQLQuery" receberar o insert com os dados para ser executado no banco
 $SQLQuery = "USE $SQLDatabase
-INSERT INTO [AD].[STGADGroup]
-           ([SID],[Name],[DisplayName],[SamAccountName],[Description]
-           ,[CanonicalName],[DistinguishedName],[GroupCategory],[Member],[MemberOf]
-           ,[GroupScope],[ObjectClass],[ProtectedFromAccidentalDeletion]
-           ,[Created],[Deleted],[Modified])
-VALUES ('$SID','$Name','$DisplayName','$SamAccountName','$Description',
-        '$CanonicalName','$DistinguishedName','$GroupCategory','$member','$MemberOf',
-        '$GroupScope','$ObjectClass','$ProtectedFromAccidentalDeletion',
-        '$Created','$Deleted','$Modified');"
+INSERT INTO [AD].[STGADcontact]
+           ([Name],[DisplayName],[mailNickname],[mail]
+           ,[CanonicalName],[DistinguishedName]
+		   ,[created],[Deleted],[Modified])
+VALUES ('$Name','$DisplayName','$mailNickname','$mail'
+       ,'$CanonicalName','$DistinguishedName'
+	   ,'$created','$Deleted','$Modified');"
 
 
 #Executa o comando de insert com os dados
