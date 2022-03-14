@@ -1,7 +1,7 @@
 ﻿param($DomainControler,$TableName)
 
 
-$SQLInstance = "S-SEBN2611"
+$SQLInstance = "XXXXXXXX"
 $SQLDatabase = "DBActiveDirectory"
 
 #Set-Location C:

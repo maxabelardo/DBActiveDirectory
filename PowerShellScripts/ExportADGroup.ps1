@@ -4,7 +4,7 @@
 # O script foi criado para ser executado de dentro de um JOB do agent do SQL Server.
 
 #Variáveis do servido e banco de dados
-$SQLInstance = "S-SEBN2611"
+$SQLInstance = "XXXXXXXX
 $SQLDatabase = "DBActiveDirectory"
 
 #Parametro necessário para execução do script dentro do job
