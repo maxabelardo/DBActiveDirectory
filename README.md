@@ -27,4 +27,13 @@ Este projeto tem o objetivo de criar uma estrutura de dados com as informações
     - Contas Ativas e expiradas.
     - Contas desativadas fora da OU "Bloqueados" ou "Desativados"  
 
-## 
+## Estrutura de dados
+Como os dados são carregados totalmente a cada carrga, as tabelas não são normatizadas e não exites chave extrangeira entre elas, para controle de relacionamento será utilizado os compos ID do Active Directory.
+
+## Tabelas 
+![image](https://user-images.githubusercontent.com/55700120/158218921-b82ed99b-7f41-4dc0-9554-6dd2ecc69c9e.png)
+
+
+
+
+
