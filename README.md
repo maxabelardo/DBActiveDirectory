@@ -33,6 +33,12 @@ Como os dados são carregados totalmente a cada carrga, as tabelas não são nor
 ## Tabelas 
 ![image](https://user-images.githubusercontent.com/55700120/158218921-b82ed99b-7f41-4dc0-9554-6dd2ecc69c9e.png)
 
+Job que executa os script de extração:
+![image](https://user-images.githubusercontent.com/55700120/158224274-ce368973-dcb7-4b96-9612-36f288ef2eea.png)
+
+
+
+
 
 
 
