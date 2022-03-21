@@ -1,8 +1,16 @@
 # Active Directory - Power BI
-## Active Directory, PowerShell e SQL Server 2016
+## Active Directory, PowerShell, SQL Server 2016 e Power BI
+#ActiveDirectory, #PowerShell, #SQLServer2016, #PowerBI
+
+Hoje já existe várias ferramentas que auxiliam o administrador do Active Directory na criação de relatórios e gráficos, do ambiente de AD, porem as melhores são paga. Este projeto tem o objetivo de ajudar aqueles que gostariam de ter informações do seu AD se precisar ficar rodando script criando planilha e montando relatório ou mesmo aprender como extrair estas informações.
+
+## Atenção:
+Este projeto não tem objetivo de subistuir ferramentas como [Varonis](https://www.varonis.com/blog/what-is-active-directory), porem é possível obter muitas das informações que o Varonis traz via PowerShell.
+
 
 ## Descrição:
-Este projeto tem o objetivo de criar uma estrutura de dados com as informações extraida do Active Directory que serão utilizados para criação de vários relatórios gerenciais.
+Criar uma estrutura de banco de dados com as informações extraida do Active Directory via PowerShell, que serão utilizados para criação de vários relatórios, painéis e gráficos via Power BI.
+
 
 ### Objetivos a serem alcançados com projeto:
 - Lista de usuários
