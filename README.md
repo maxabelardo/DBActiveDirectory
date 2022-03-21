@@ -1,4 +1,5 @@
-# DBActiveDirectory - PowerShell e SQL Server 2016
+# Active Directory - Power BI
+## Active Directory, PowerShell e SQL Server 2016
 
 ## Descrição:
 Este projeto tem o objetivo de criar uma estrutura de dados com as informações extraida do Active Directory que serão utilizados para criação de vários relatórios gerenciais.
