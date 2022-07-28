@@ -1,0 +1,9 @@
+C:\Users\Davi\Documents\GitHub\monitodatabase\InventarioBancoDeDados\VisualStudio\InventarioBancoDeDados\bin\Debug\InventarioBancoDeDados.dacpac
+C:\Users\Davi\Documents\GitHub\monitodatabase\InventarioBancoDeDados\VisualStudio\InventarioBancoDeDados\bin\Debug\InventarioBancoDeDados.dll
+C:\Users\Davi\Documents\GitHub\monitodatabase\InventarioBancoDeDados\VisualStudio\InventarioBancoDeDados\bin\Debug\InventarioBancoDeDados.pdb
+C:\Users\Davi\Documents\GitHub\monitodatabase\InventarioBancoDeDados\VisualStudio\InventarioBancoDeDados\obj\Debug\InventarioBancoDeDados.dll
+C:\Users\Davi\Documents\GitHub\monitodatabase\InventarioBancoDeDados\VisualStudio\InventarioBancoDeDados\obj\Debug\InventarioBancoDeDados.pdb
+C:\Users\Davi\Documents\GitHub\monitodatabase\InventarioBancoDeDados\VisualStudio\InventarioBancoDeDados\obj\Debug\Model.xml
+C:\Users\Davi\Documents\GitHub\monitodatabase\InventarioBancoDeDados\VisualStudio\InventarioBancoDeDados\obj\Debug\refactor.xml
+C:\Users\Davi\Documents\GitHub\monitodatabase\InventarioBancoDeDados\VisualStudio\InventarioBancoDeDados\obj\Debug\postdeploy.sql
+C:\Users\Davi\Documents\GitHub\monitodatabase\InventarioBancoDeDados\VisualStudio\InventarioBancoDeDados\obj\Debug\predeploy.sql

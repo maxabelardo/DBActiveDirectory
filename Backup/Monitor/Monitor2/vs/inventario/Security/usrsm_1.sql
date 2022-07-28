@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [usrsm]
+    WITH PASSWORD = N'PEqifvwonjprzndej.po{RspmsFT7_&#$!~<xc#iuNguxtr{', SID = 0xE4C0C7DB471FF34FBB9ECB3D168FE387, DEFAULT_LANGUAGE = [us_english], CHECK_POLICY = OFF;
+

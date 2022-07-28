@@ -1,0 +1,25 @@
+﻿CREATE TABLE [SGBD].[MnSQLBackupJanela] (
+    [idMnSQLBackupJanela] INT        IDENTITY (1, 1) NOT NULL,
+    [idSGBD]              INT        NOT NULL,
+    [startJanela]         TIME (7)   NULL,
+    [endJanela]           TIME (7)   NULL,
+    [dateStat]            DATETIME   NULL,
+    [dateEnd]             DATETIME   NULL,
+    [FreqMonday]          INT        CONSTRAINT [DF__MnSQLBack__FreqM__7211DF33] DEFAULT ((1)) NULL,
+    [FreqMondayTpBK]      NCHAR (10) NULL,
+    [FreqTuesDay]         INT        CONSTRAINT [DF__MnSQLBack__FreqT__7306036C] DEFAULT ((1)) NULL,
+    [FreqTuesDayTpBk]     NCHAR (10) NULL,
+    [FreqWednesday]       INT        CONSTRAINT [DF__MnSQLBack__FreqW__73FA27A5] DEFAULT ((1)) NULL,
+    [FreqWednesdayTpBk]   NCHAR (10) NULL,
+    [FreqTrursday]        INT        CONSTRAINT [DF__MnSQLBack__FreqT__74EE4BDE] DEFAULT ((1)) NULL,
+    [FredTrursdayTpBk]    NCHAR (10) NULL,
+    [FreqFriday]          INT        CONSTRAINT [DF__MnSQLBack__FreqF__75E27017] DEFAULT ((1)) NULL,
+    [FreqFridayTpBk]      NCHAR (10) NULL,
+    [FreqSaturday]        INT        CONSTRAINT [DF__MnSQLBack__FreqS__76D69450] DEFAULT ((1)) NULL,
+    [FreqSaturdayTpBk]    NCHAR (10) NULL,
+    [Sunday]              INT        CONSTRAINT [DF__MnSQLBack__Sunda__77CAB889] DEFAULT ((1)) NULL,
+    [SundayTpBk]          NCHAR (10) NULL,
+    CONSTRAINT [PK__MnSQLBac__75A31E97679450C0] PRIMARY KEY CLUSTERED ([idMnSQLBackupJanela] ASC) WITH (FILLFACTOR = 80),
+    CONSTRAINT [FK__MnSQLBack__idSGB__697C9932] FOREIGN KEY ([idSGBD]) REFERENCES [SGBD].[SGBD] ([idSGBD])
+);
+

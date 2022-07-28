@@ -1,0 +1,16 @@
+
+Automação da criação dos LinkedServer no servidor.
+
+Objetivo:
+    Esta rotina dever identificar quais servidores estão sem conexão criadas para extração de dados,
+apois a identificação o mesmo cria o Objeto de conexão certo para tecnologia do banco que será monitorado
+
+Fluxo da rotina:
+
+    Esta Rotina está no job.
+    00 - Por tecnologia, devera relacionar todos os LinkedServer já existentes e cruza com a lista de servidor de SGBD 
+    01 - Se o passo anterio identificar servidores sem conexão criadas iniciar a rotina de criação, com base na tecnlogia executa a fução condisente com ela.
+    
+        Esta parte está em uma função "SP_CreateLinkServer_XXXXX"
+        011 - 
+

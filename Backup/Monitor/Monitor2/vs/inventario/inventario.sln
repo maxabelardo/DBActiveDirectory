@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31911.196
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "inventario", "inventario.sqlproj", "{FDEEFD77-7409-4063-9592-8269ACCAD637}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FDEEFD77-7409-4063-9592-8269ACCAD637}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDEEFD77-7409-4063-9592-8269ACCAD637}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDEEFD77-7409-4063-9592-8269ACCAD637}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{FDEEFD77-7409-4063-9592-8269ACCAD637}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDEEFD77-7409-4063-9592-8269ACCAD637}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDEEFD77-7409-4063-9592-8269ACCAD637}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {11723034-2653-4489-A4CD-28CE40F8501C}
+	EndGlobalSection
+EndGlobal

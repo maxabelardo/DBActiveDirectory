@@ -1,0 +1,29 @@
+
+
+Schemas do banco:
+
+    #Schema padrão do banco, será usuado para armazena os objetos que serão de uso comum entre os outros schemas
+    dbo
+    
+    #Este schema será utilizado para armazenar os objetos voltados as maquina ou servidores
+    ServerHost
+
+    #Este schema será utilizado para armazenar os objetos dos Gerenciadores de banco de dados
+    SGBD
+
+
+
+Nomeclarura para criação de tabelas
+
+    tudo que for amazenar dados voltado para fatos serão criados utilizando seus nomes
+
+        #Nome do servidor
+        Servidor
+
+        #Nome das bases de dados
+        BaseDeDados
+
+        #tabelas que de metricas ou status de um momento do objeto terma o nome iniciado com "MT" Metrica.
+        MTBDTamanho
+        
+        

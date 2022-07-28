@@ -1,0 +1,87 @@
+30/11/2021 02:30:59	This log contains information about the import schema operation into project 'inventario' on computer 'DESKTOP-TOE955Q' by user 'Abelardo'.
+30/11/2021 02:31:00	Import of database schema has started.
+30/11/2021 02:31:09	Gathering database credentials
+30/11/2021 02:31:09	Gathering database options
+30/11/2021 02:31:09	Gathering generic database scoped configuration option
+30/11/2021 02:31:09	Gathering users
+30/11/2021 02:31:09	Gathering roles
+30/11/2021 02:31:09	Gathering application roles
+30/11/2021 02:31:09	Gathering role memberships
+30/11/2021 02:31:09	Gathering filegroups
+30/11/2021 02:31:09	Gathering full-text catalogs
+30/11/2021 02:31:09	Gathering assemblies
+30/11/2021 02:31:09	Gathering certificates
+30/11/2021 02:31:09	Gathering asymmetric keys
+30/11/2021 02:31:09	Gathering symmetric keys
+30/11/2021 02:31:09	Gathering encrypted symmetric keys
+30/11/2021 02:31:09	Gathering schemas
+30/11/2021 02:31:09	Gathering XML schema collections
+30/11/2021 02:31:09	Gathering user-defined data types
+30/11/2021 02:31:09	Gathering user-defined types
+30/11/2021 02:31:09	Gathering table types
+30/11/2021 02:31:09	Gathering unique keys for table types
+30/11/2021 02:31:09	Gathering primary keys for table types
+30/11/2021 02:31:09	Gathering indexes for table types
+30/11/2021 02:31:10	Gathering check constraints for table types
+30/11/2021 02:31:10	Gathering default constraints for table types
+30/11/2021 02:31:10	Gathering partition functions
+30/11/2021 02:31:10	Gathering partition schemes
+30/11/2021 02:31:10	Gathering functions
+30/11/2021 02:31:10	Gathering encrypted functions
+30/11/2021 02:31:10	Gathering aggregates
+30/11/2021 02:31:10	Gathering procedures
+30/11/2021 02:31:10	Gathering encrypted procedures
+30/11/2021 02:31:10	Gathering tables
+30/11/2021 02:31:11	Gathering primary keys
+30/11/2021 02:31:11	Gathering unique constraints
+30/11/2021 02:31:11	Gathering foreign keys
+30/11/2021 02:31:11	Gathering default constraints
+30/11/2021 02:31:11	Gathering check constraints
+30/11/2021 02:31:11	Gathering views
+30/11/2021 02:31:11	Gathering encrypted views
+30/11/2021 02:31:11	Gathering indexes
+30/11/2021 02:31:11	Gathering statistics
+30/11/2021 02:31:11	Gathering full-text index stoplists
+30/11/2021 02:31:11	Gathering search property lists
+30/11/2021 02:31:11	Gathering search properties
+30/11/2021 02:31:11	Gathering full-text indexes
+30/11/2021 02:31:12	Gathering column store indexes
+30/11/2021 02:31:12	Gathering spatial indexes
+30/11/2021 02:31:12	Gathering XML indexes
+30/11/2021 02:31:12	Gathering Selective XML indexes
+30/11/2021 02:31:12	Gathering encrypted triggers
+30/11/2021 02:31:12	Gathering triggers
+30/11/2021 02:31:12	Gathering encrypted and clr ddl triggers
+30/11/2021 02:31:12	Gathering ddl triggers
+30/11/2021 02:31:12	Creating edge constraints
+30/11/2021 02:31:12	Gathering synonyms
+30/11/2021 02:31:12	Gathering defaults
+30/11/2021 02:31:12	Gathering data constraint uddt bindings
+30/11/2021 02:31:12	Gathering rules
+30/11/2021 02:31:12	Gathering data constraint uddt bindings
+30/11/2021 02:31:12	Gathering message types
+30/11/2021 02:31:12	Gathering queues
+30/11/2021 02:31:12	Gathering contracts
+30/11/2021 02:31:12	Gathering services
+30/11/2021 02:31:12	Gathering event notifications
+30/11/2021 02:31:12	Gathering remote service bindings
+30/11/2021 02:31:12	Gathering broker priorities
+30/11/2021 02:31:12	Gathering signatures
+30/11/2021 02:31:12	Gathering data compression options
+30/11/2021 02:31:12	Gathering sequence types
+30/11/2021 02:31:12	Gathering security policies
+30/11/2021 02:31:12	Gather column encryption keys
+30/11/2021 02:31:12	Gathering column master keys
+30/11/2021 02:31:12	Gathering external data sources
+30/11/2021 02:31:12	Gathering external file formats
+30/11/2021 02:31:12	Gathering external tables
+30/11/2021 02:31:12	Gathering extended properties
+30/11/2021 02:31:12	Gathering assemblies
+30/11/2021 02:31:13	Gathering credentials
+30/11/2021 02:31:13	Gathering logins
+30/11/2021 02:31:13	Gathering server audits
+30/11/2021 02:31:16	Scanning project for duplicate elements
+30/11/2021 02:31:16	Finished duplicate element processing
+30/11/2021 02:31:18	Finished importing database.
+30/11/2021 02:31:18	A summary of the import was saved to the following location: D:\GitHub\monitodatabase\Monitor\vs\inventario\Import Schema Logs\inventario_20211130053059.log
+30/11/2021 02:31:18	Click Finish to continue...

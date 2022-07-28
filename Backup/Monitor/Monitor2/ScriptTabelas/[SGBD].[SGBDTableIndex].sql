@@ -1,0 +1,31 @@
+USE [inventario]
+GO
+
+/****** Object:  Table [SGBD].[SGBDTableIndex]    Script Date: 03/07/2021 20:24:14 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [SGBD].[SGBDTableIndex](
+	[idSGBDTableIndex] [int] IDENTITY(1,1) NOT NULL,
+	[idSGBDTable] [int] NOT NULL,
+	[Index_name] [varchar](255) NULL,
+	[FileGroup] [varchar](255) NULL,
+	[type_desc] [varchar](255) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[idSGBDTableIndex] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [SGBD].[SGBDTableIndex]  WITH CHECK ADD  CONSTRAINT [FK__SGBDTableIndex__idDat__32AB8735] FOREIGN KEY([idSGBDTable])
+REFERENCES [SGBD].[SGBDTable] ([idSGBDTable])
+GO
+
+ALTER TABLE [SGBD].[SGBDTableIndex] CHECK CONSTRAINT [FK__SGBDTableIndex__idDat__32AB8735]
+GO
+
+

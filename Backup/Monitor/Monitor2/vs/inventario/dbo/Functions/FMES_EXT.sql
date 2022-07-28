@@ -1,0 +1,17 @@
+﻿
+
+-- SET ESTE COMANDO ANTES DE EXECUTA ESTA FUNÇÃO. SET LANGUAGE BRAZILIAN
+
+CREATE function [dbo].[FMES_EXT](@DATA DATETIME) RETURNS Char(10)  AS
+begin
+
+DECLARE @return CHAR(10)
+
+--	SET LANGUAGE BRAZILIAN
+	
+	SELECT  @return   = DateName(Month,@DATA)	
+
+RETURN @return   
+
+end
+

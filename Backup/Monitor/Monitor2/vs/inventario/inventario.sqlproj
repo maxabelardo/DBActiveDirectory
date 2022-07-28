@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>inventario</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{fdeefd77-7409-4063-9592-8269accad637}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>inventario</RootNamespace>
+    <AssemblyName>inventario</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>Latin1_General_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="SGBD\" />
+    <Folder Include="SGBD\Tables\" />
+    <Folder Include="Zabbix\" />
+    <Folder Include="Zabbix\Tables\" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="Rotineira\" />
+    <Folder Include="Rotineira\Tables\" />
+    <Folder Include="ServerHost\" />
+    <Folder Include="ServerHost\Tables\" />
+    <Folder Include="SGBD\Views\" />
+    <Folder Include="Rotineira\Views\" />
+    <Folder Include="dbo\Views\" />
+    <Folder Include="Report\" />
+    <Folder Include="Report\Views\" />
+    <Folder Include="Security\" />
+    <Folder Include="dbo\Functions\" />
+    <Folder Include="Rotineira\Functions\" />
+    <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="Rotineira\Stored Procedures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="SGBD\Tables\MtSQLCPU.sql" />
+    <Build Include="SGBD\Tables\MtSQLDisk.sql" />
+    <Build Include="SGBD\Tables\MtMySQLUserPrivileges.sql" />
+    <Build Include="SGBD\Tables\MtSQLMemoriaBuffeDB.sql" />
+    <Build Include="SGBD\Tables\SGBDBackupJanela.sql" />
+    <Build Include="Zabbix\Tables\HostCPU.sql" />
+    <Build Include="Zabbix\Tables\HostSWAP.sql" />
+    <Build Include="SGBD\Tables\MtMySQLDatabasePrivileges.sql" />
+    <Build Include="SGBD\Tables\MtMySQLTablePrivileges.sql" />
+    <Build Include="dbo\Tables\monitorMigra.sql" />
+    <Build Include="SGBD\Tables\MtMySQLColumnPrivileges.sql" />
+    <Build Include="SGBD\Tables\MtSQLTableIndexUser.sql" />
+    <Build Include="SGBD\Tables\SGBDDatabases.sql" />
+    <Build Include="SGBD\Tables\MtUserConnect.sql" />
+    <Build Include="SGBD\Tables\MtPgTableColumnPrivileges.sql" />
+    <Build Include="SGBD\Tables\SGBDTableColumn.sql" />
+    <Build Include="SGBD\Tables\SGBDBackupJlDatabase.sql" />
+    <Build Include="SGBD\Tables\SGBDTable.sql" />
+    <Build Include="SGBD\Tables\IvPgRoles.sql" />
+    <Build Include="SGBD\Tables\SGBDBackupOcorrencia.sql" />
+    <Build Include="SGBD\Tables\IvPgRolesMembers.sql" />
+    <Build Include="SGBD\Tables\SGBD.sql" />
+    <Build Include="dbo\Tables\profileSalic.sql" />
+    <Build Include="SGBD\Tables\MtMySQLControlAccess.sql" />
+    <Build Include="SGBD\Tables\MtSQLControlAccess.sql" />
+    <Build Include="SGBD\Tables\MtPgControlAccess.sql" />
+    <Build Include="SGBD\Tables\MtPgReplicationDelayTime.sql" />
+    <Build Include="SGBD\Tables\MnSQLBackupJanela.sql" />
+    <Build Include="SGBD\Tables\SGBDTableIndex.sql" />
+    <Build Include="SGBD\Tables\MtDbSize.sql" />
+    <Build Include="Rotineira\Tables\BackupsMsMonitorMes.sql" />
+    <Build Include="Rotineira\Tables\BackupsMsQuadroDetalhado.sql" />
+    <Build Include="SGBD\Tables\MtMyDbBackup.sql" />
+    <Build Include="SGBD\Tables\MtPgDbBackup.sql" />
+    <Build Include="SGBD\Tables\MtPgTableIndexStat.sql" />
+    <Build Include="SGBD\Tables\MtSQLDbBackup.sql" />
+    <Build Include="SGBD\Tables\SGBDBackupDir.sql" />
+    <Build Include="Zabbix\Tables\HostMemory.sql" />
+    <Build Include="SGBD\Tables\TipoOcorrencia.sql" />
+    <Build Include="SGBD\Tables\MtPgTablePrivileges.sql" />
+    <Build Include="SGBD\Tables\ToolsBackup.sql" />
+    <Build Include="Zabbix\Tables\HostNetWork.sql" />
+    <Build Include="SGBD\Tables\MtPgTableStat.sql" />
+    <Build Include="SGBD\Tables\MtMySQLReplication.sql" />
+    <Build Include="ServerHost\Tables\ServerHost.sql" />
+    <Build Include="Rotineira\Tables\BackupMySQLQuadroDetalhado.sql" />
+    <Build Include="SGBD\Tables\MtMySQLTableIndexStat.sql" />
+    <Build Include="SGBD\Tables\SGBDBackupTipo.sql" />
+    <Build Include="Rotineira\Tables\BackupPgSQLQuadroDetalhado.sql" />
+    <Build Include="SGBD\Tables\IvSQLPermissionDb.sql" />
+    <Build Include="SGBD\Tables\IvSQLPermissionLogin.sql" />
+    <Build Include="SGBD\Views\SGBDEstDBTable.sql" />
+    <Build Include="SGBD\Views\VW_SGBDPgTableStat.sql" />
+    <Build Include="SGBD\Views\VW_SGBDPgTableIndexStat.sql" />
+    <Build Include="SGBD\Views\DatabaseAccess.sql" />
+    <Build Include="SGBD\Views\SGBDServidorProd.sql" />
+    <Build Include="Rotineira\Views\ReplicacaoPostgresqlListSrv.sql" />
+    <Build Include="SGBD\Views\VW_SGBDEstDBTable.sql" />
+    <Build Include="SGBD\Views\VW_SGBDSQLTableIndexUser.sql" />
+    <Build Include="SGBD\Views\VW_SGBDTableIndex.sql" />
+    <Build Include="SGBD\Views\DatabaseAccessMes.sql" />
+    <Build Include="dbo\Views\NAYARA.sql" />
+    <Build Include="Rotineira\Views\ReplicacaoPostgresqlGrafico.sql" />
+    <Build Include="Rotineira\Views\BackupJanela.sql" />
+    <Build Include="SGBD\Views\SGBDDatabasesProd.sql" />
+    <Build Include="Report\Views\BackupsMyMonitorMes.sql" />
+    <Build Include="Report\Views\BackupsPgMonitorMes.sql" />
+    <Build Include="Rotineira\Views\DesempenhoMyDBcrescimentoPanel.sql" />
+    <Build Include="SGBD\Views\SGBDEst.sql" />
+    <Build Include="SGBD\Views\SGBDEstDB.sql" />
+    <Build Include="Rotineira\Views\DesempenhoDBcrescimentoDiv.sql" />
+    <Build Include="Rotineira\Views\DesempenhoMyDBcrescimentoChAnaliticoBSZ.sql" />
+    <Build Include="Report\Views\BackupsPgSQLMonitorMesvf.sql" />
+    <Build Include="Rotineira\Views\BackupPostgresqlValidacao.sql" />
+    <Build Include="Rotineira\Views\DesempenhoPgDBcrescimentoPanel.sql" />
+    <Build Include="Rotineira\Views\DesempenhoPgDBcrescimentoChAnaliticoBSZ.sql" />
+    <Build Include="Rotineira\Views\DesempenhoDBcrescimento.sql" />
+    <Build Include="Rotineira\Views\DesempenhoMsDBcrescimentoRelAnalitico.sql" />
+    <Build Include="Rotineira\Views\DesempenhoMsDBcrescimentoRelAnaliticoSZ.sql" />
+    <Build Include="Rotineira\Views\DesempenhoMyDBcrescimentoRelAnaliticoSZ.sql" />
+    <Build Include="Rotineira\Views\DesempenhoPgDBcrescimentoRelAnaliticoSZ.sql" />
+    <Build Include="Rotineira\Views\DesempenhoMsDBcrescimentoPanel.sql" />
+    <Build Include="Report\Views\BackupsMsMonitorMes.sql" />
+    <Build Include="Rotineira\Views\DesempenhoMsDBcrescimentoChAnaliticoSZ.sql" />
+    <Build Include="Rotineira\Views\DesempenhoMsDBcrescimentoChAnaliticoBSZ.sql" />
+    <Build Include="Rotineira\Views\DesempenhoDBcrescimentoDivFULL.sql" />
+    <Build Include="Rotineira\Views\BackupMsMonitorCrescimento.sql" />
+    <Build Include="Rotineira\Views\DesempenhoDBcrescimentoFULL.sql" />
+    <Build Include="Report\Views\DatabaseSize.sql" />
+    <Build Include="Rotineira\Views\DesempenhoMemory.sql" />
+    <Build Include="Report\Views\BackupsMsMonitorMesvf.sql" />
+    <Build Include="Report\Views\BackupsMySQLMonitorMesvf.sql" />
+    <Build Include="Rotineira\Views\DesempenhoNetWork.sql" />
+    <Build Include="Rotineira\Views\ReplicacaoMysqlQuant.sql" />
+    <Build Include="Rotineira\Views\ReplicacaoMysqlListSrv.sql" />
+    <Build Include="Rotineira\Views\ReplicacaoMysqlGrafico.sql" />
+    <Build Include="Rotineira\Views\BackupMsPainel.sql" />
+    <Build Include="Rotineira\Views\BackupMsValidacao.sql" />
+    <Build Include="Rotineira\Views\BackupMsLsExecutadosNoDiaAnterior.sql" />
+    <Build Include="SGBD\Views\VW_SGBDTableColumn.sql" />
+    <Build Include="Rotineira\Views\BackupMsLsExecutadosNo3Dias.sql" />
+    <Build Include="Rotineira\Views\BackupMsLsExecutadosMesCorrente.sql" />
+    <Build Include="Rotineira\Views\BackupMsGrafico01.sql" />
+    <Build Include="Rotineira\Views\ReplicacaoPostgresqlQuant.sql" />
+    <Build Include="SGBD\Views\DatabaseAccessIP.sql" />
+    <Build Include="Security\usrsm.sql" />
+    <Build Include="Security\usrsm_1.sql" />
+    <Build Include="Security\MINC_hepta.cristiano.i.sql" />
+    <Build Include="Security\MINC_hepta_1.cristiano.i.sql" />
+    <Build Include="Security\sisrelatorio.sql" />
+    <Build Include="Security\sisrelatorio_1.sql" />
+    <Build Include="Security\RoleMemberships.sql" />
+    <Build Include="dbo\Functions\F_BackupExe.sql" />
+    <Build Include="dbo\Functions\F_BK_JANELA_FIM.sql" />
+    <Build Include="dbo\Functions\F_BK_JANELA_INICIO.sql" />
+    <Build Include="dbo\Functions\F_HoraDiaNow24.sql" />
+    <Build Include="dbo\Functions\F_HoraDiaNowZero.sql" />
+    <Build Include="dbo\Functions\F_PrimeiroDiaMesCh.sql" />
+    <Build Include="dbo\Functions\F_PrimeiroDiaMesDT.sql" />
+    <Build Include="dbo\Functions\F_UltimmoDiaMesCh.sql" />
+    <Build Include="dbo\Functions\F_UltimmoDiaMesDT.sql" />
+    <Build Include="dbo\Functions\FDIA_SEMANA.sql" />
+    <Build Include="dbo\Functions\FMES_EXT.sql" />
+    <Build Include="Rotineira\Functions\F_BackupJanelaFim.sql" />
+    <Build Include="Rotineira\Functions\F_BackupJanelaInicio.sql" />
+    <Build Include="Rotineira\Functions\F_BackupWindows.sql" />
+    <Build Include="Rotineira\Functions\F_RetornoDBszAcumulado.sql" />
+    <Build Include="Rotineira\Functions\F_RetornoDiaMesAtual.sql" />
+    <Build Include="Rotineira\Functions\F_DesempenhoDBcrescimentoDiv.sql" />
+    <Build Include="dbo\Stored Procedures\SP_CreateLinkServer_SQL.sql" />
+    <Build Include="Rotineira\Stored Procedures\SP_AtlBackupMsQuadroDetalhado.sql" />
+    <Build Include="Rotineira\Stored Procedures\SP_AtlBackupMyQuadroDetalhado.sql" />
+    <Build Include="Rotineira\Stored Procedures\SP_AtlBackupPgQuadroDetalhado.sql" />
+    <Build Include="Rotineira\Stored Procedures\SP_PrcBackupMsQuadroDetalhado.sql" />
+    <Build Include="Rotineira\Stored Procedures\SP_PrcBackupMyQuadroDetalhado.sql" />
+    <Build Include="Rotineira\Stored Procedures\SP_PrcBackupPgQuadroDetalhado.sql" />
+    <Build Include="Security\Report.sql" />
+    <Build Include="Security\Rotineira.sql" />
+    <Build Include="Security\ServerHost.sql" />
+    <Build Include="Security\SGBD.sql" />
+    <Build Include="Security\Zabbix.sql" />
+  </ItemGroup>
+</Project>
