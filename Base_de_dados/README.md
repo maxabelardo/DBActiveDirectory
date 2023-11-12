@@ -31,11 +31,11 @@ Tabelas:
 
 #### Scripts para criação das tabelas:
 
-- 00_create_shema_brz.sql
-- 01_create_brz_user.sql
-- 02_create_brz_group.sql
-- 03_create_brz_contact.sql
-- 04_create_brz_computer.sql
-- 05_create_brz_gpo.sql
-- 06_create_brz_ou.sql
-- 07_create_brz_domain_controller.sql
+- [00_create_shema_brz.sql](https://github.com/maxabelardo/DBActiveDirectory/blob/main/Base_de_dados/00_create_shema_brz.sql)
+- [01_create_brz_user.sql](Base_de_dados/01_create_brz_user.sql)
+- [02_create_brz_group.sql]()
+- [03_create_brz_contact.sql]()
+- [04_create_brz_computer.sql]()
+- [05_create_brz_gpo.sql]()
+- [06_create_brz_ou.sql]()
+- [07_create_brz_domain_controller.sql]()
