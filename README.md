@@ -51,7 +51,7 @@ Softwares que seram utilizados neste projeto:
 
 ## A execuçã do projeto será divido nos topicos abaixo:
 
-+ Criação de uma base de dados.
++ Desenvolvimento da base de dados.
 + Desenvolvimento dos scripts.
 + Desenvolvimento de View, procedures e functions.
 + Automatizar a extração dos dados utilizando o MS SQL Agent.
