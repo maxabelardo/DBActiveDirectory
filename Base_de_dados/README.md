@@ -65,8 +65,7 @@ Objetos:
 - [20_siv.create_user_account_control.sql](https://github.com/maxabelardo/DBActiveDirectory/blob/main/Base_de_dados/20_siv.create_user_account_control.sql)
 - [21_siv.create_fc_return_member.sql](https://github.com/maxabelardo/DBActiveDirectory/blob/main/Base_de_dados/21_siv.create_fc_return_member.sql)
 - [22_siv.create_sp_group_member.sql](https://github.com/maxabelardo/DBActiveDirectory/blob/main/Base_de_dados/22_siv.create_sp_group_member.sql)
-- [23_siv.create_fc_return_ou_objetos.sql](https://github.com/maxabelardo/DBActiveDirectory/blob/main/Base_de_dados/23_siv.
-create_fc_return_ou_objetos.sql)
+- [23_siv.create_fc_return_ou_objetos.sql](https://github.com/maxabelardo/DBActiveDirectory/blob/main/Base_de_dados/23_siv.create_fc_return_ou_objetos.sql)
 - [24_siv.create_fc_ou_member.sql](https://github.com/maxabelardo/DBActiveDirectory/blob/main/Base_de_dados/24_siv.create_fc_ou_member.sql)
 - [25_siv.create_sp_ou_member.sql](https://github.com/maxabelardo/DBActiveDirectory/blob/main/Base_de_dados/25_siv.create_sp_ou_member.sql)
 - [26_siv_create_sp_computer.sql]()
