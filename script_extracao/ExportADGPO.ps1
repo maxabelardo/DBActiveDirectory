@@ -1,11 +1,11 @@
 #
-# Este script foi criado para extrair os usuários e suas informações do Active Directory e inserir elas 
+# Este script foi criado para extrair as GPO e suas informações do Active Directory e inserir elas 
 # em um servido de banco dados para futuro tratamento.
 # O script foi criado para ser executado de dentro de um JOB do agent do SQL Server.
 
 #Variáveis do servido e banco de dados
 $SQLInstance = "XXXXXXXX"
-$SQLDatabase = "DBActiveDirectory"
+$SQLDatabase = "XXXXXXXX"
 
 #Parametro necessário para execução do script dentro do job
 Set-Location C:
@@ -24,7 +24,7 @@ $SQLQuery1Output = Invoke-Sqlcmd -query $SQLQueryDelete -ServerInstance $SQLInst
 
 try{
 
- $Usrs = Get-GPO -All | SELECT Id, DisplayName, DomainName, Owner, GpoStatus, Description, UserVersion, ComputerVersion,
+ $Usrs = Get-GPO -All | Select-Object Id, DisplayName, DomainName, Owner, GpoStatus, Description, UserVersion, ComputerVersion,
     @{Name='CreationTime';Expression={$_.CreationTime.ToString("yyyy\/MM\/dd HH:mm:ss")}},
     @{Name='ModificationTime';Expression={$_.ModificationTime.ToString("yyyy\/MM\/dd HH:mm:ss")}} -ErrorAction stop
 

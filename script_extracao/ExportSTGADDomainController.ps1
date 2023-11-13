@@ -1,11 +1,11 @@
 #
-# Este script foi criado para extrair os usuários e suas informações do Active Directory e inserir elas 
+# Este script foi criado para extrair os DOMAIN CONTROLLER e suas informações do Active Directory e inserir elas 
 # em um servido de banco dados para futuro tratamento.
 # O script foi criado para ser executado de dentro de um JOB do agent do SQL Server.
 
 #Variáveis do servido e banco de dados
 $SQLInstance = "XXXXXXXX"
-$SQLDatabase = "DBActiveDirectory"
+$SQLDatabase = "XXXXXXXX"
 
 #Parametro necessário para execução do script dentro do job
 Set-Location C:
@@ -37,7 +37,7 @@ ForEach($Inicial in $Iniciais){
 
 try{
 
- $Usrs = Get-ADDomainController -Filter {Name -like $Inicial} | Select Name, HostName, ipv4Address, OperatingSystem, OperatingSystemVersion, site, Enabled  -ErrorAction stop
+ $Usrs = Get-ADDomainController -Filter {Name -like $Inicial} | Select-Object Name, HostName, ipv4Address, OperatingSystem, OperatingSystemVersion, site, Enabled  -ErrorAction stop
 
 }catch{
 Write-Output $Inicial

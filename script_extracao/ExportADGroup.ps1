@@ -1,11 +1,10 @@
-﻿#
-# Este script foi criado para extrair os usuários e suas informações do Active Directory e inserir elas 
+﻿# Este script foi criado para extrair os GROUP e suas informações do Active Directory e inserir elas 
 # em um servido de banco dados para futuro tratamento.
 # O script foi criado para ser executado de dentro de um JOB do agent do SQL Server.
 
 #Variáveis do servido e banco de dados
-$SQLInstance = "XXXXXXXX
-$SQLDatabase = "DBActiveDirectory"
+$SQLInstance = "XXXXXXXX"
+$SQLDatabase = "XXXXXXXX"
 
 #Parametro necessário para execução do script dentro do job
 Set-Location C:
@@ -39,7 +38,7 @@ ForEach($Inicial in $Iniciais){
 # A variável "$Usrs" é uma matriz que receberá o resultado do comando de extração dos usuários.
 
 try{
- $Usrs = Get-ADGroup -f {SamAccountName -like $Inicial} -Properties * | SELECT SID,Name,DisplayName,SamAccountName,Description,CanonicalName,DistinguishedName,
+ $Usrs = Get-ADGroup -f {SamAccountName -like $Inicial} -Properties * | Select-Object SID,Name,DisplayName,SamAccountName,Description,CanonicalName,DistinguishedName,
     GroupCategory, Member, MemberOf, GroupScope,ObjectClass,
     ProtectedFromAccidentalDeletion,
     @{Name='Created';Expression={$_.Created.ToString("yyyy\/MM\/dd HH:mm:ss")}},
@@ -103,15 +102,11 @@ break
 	    $member = $Lipemza.replace("'","")
     }else{$member = $Usr.member}
 
-
-#$member = $Usr.member
-
     if ($Usr.MemberOf){      
         $Lipemza = $Usr.MemberOf
 	    $MemberOf = $Lipemza.replace("'","")
     }else{$MemberOf = $Usr.MemberOf}
 
-#$MemberOf = $Usr.MemberOf
 
 	$GroupScope = $Usr.GroupScope
 	$ObjectClass = $Usr.ObjectClass

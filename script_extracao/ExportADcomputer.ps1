@@ -1,11 +1,10 @@
-﻿#
-# Este script foi criado para extrair os "Computadores" e suas informações do Active Directory e inserir elas 
+﻿# Este script foi criado para extrair os "Computadores" e suas informações do Active Directory e inserir elas 
 # em um servido de banco dados para futuro tratamento.
 # O script foi criado para ser executado de dentro de um JOB do agent do SQL Server.
 
 #Variáveis do servido e banco de dados
 $SQLInstance = "XXXXXXXX" # Nome da estância de banco de dados
-$SQLDatabase = "DBActiveDirectory" # Nome da base de dados
+$SQLDatabase = "XXXXXXXX" # Nome da base de dados
 
 #Parametro necessário para execução do script dentro do job
 Set-Location C:
@@ -37,7 +36,7 @@ ForEach($Inicial in $Iniciais){
 #Iniciar a extração dos Usuários do Active Directory
 # A variável "$Usrs" é uma matriz que receberá o resultado do comando de extração dos usuários.
     try{
-    $Usrs = Get-ADComputer -f {Name -like $Inicial} -Properties * | SELECT SID, Name, DisplayName, SamAccountName, Description, ObjectClass, PrimaryGroup, MemberOf,
+    $Usrs = Get-ADComputer -f {Name -like $Inicial} -Properties * | Select-Object SID, Name, DisplayName, SamAccountName, Description, ObjectClass, PrimaryGroup, MemberOf,
         OperatingSystem, OperatingSystemHotfix, OperatingSystemServicePack, OperatingSystemVersion,
         CanonicalName, Enabled,IPv4Address, 
         @{Name='Created';Expression={$_.Created.ToString("yyyy\/MM\/dd HH:mm:ss")}},
@@ -53,8 +52,6 @@ ForEach($Inicial in $Iniciais){
     throw $_
     break
     }
-
-
 
 
 #Loop que será usuado para transferir os dados da matriz para o banco de dados

@@ -1,11 +1,11 @@
 #
-# Este script foi criado para extrair os usuários e suas informações do Active Directory e inserir elas 
+# Este script foi criado para extrair os OU e suas informações do Active Directory e inserir elas 
 # em um servido de banco dados para futuro tratamento.
 # O script foi criado para ser executado de dentro de um JOB do agent do SQL Server.
 
 #Variáveis do servido e banco de dados
 $SQLInstance = "XXXXXXXX"
-$SQLDatabase = "DBActiveDirectory"
+$SQLDatabase = "XXXXXXXX"
 
 #Parametro necessário para execução do script dentro do job
 Set-Location C:
@@ -37,7 +37,7 @@ ForEach($Inicial in $Iniciais){
 
 try{
 
- $Usrs = Get-ADOrganizationalUnit -f {Name -like $Inicial}  | SELECT ObjectGUID, Name, ObjectClass, DistinguishedName, ManagedBy -ErrorAction stop
+ $Usrs = Get-ADOrganizationalUnit -f {Name -like $Inicial}  | Select-Object ObjectGUID, Name, ObjectClass, DistinguishedName, ManagedBy -ErrorAction stop
 
 }catch{
 Write-Output $Inicial

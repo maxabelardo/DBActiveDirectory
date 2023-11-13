@@ -1,11 +1,10 @@
-#
-# Este script foi criado para extrair os usuários e suas informações do Active Directory e inserir elas 
+# Este script foi criado para extrair os CONTACT e suas informações do Active Directory e inserir elas 
 # em um servido de banco dados para futuro tratamento.
 # O script foi criado para ser executado de dentro de um JOB do agent do SQL Server.
 
 #Variáveis do servido e banco de dados
 $SQLInstance = "XXXXXXXX"
-$SQLDatabase = "DBActiveDirectory"
+$SQLDatabase = "XXXXXXXX"
 
 #Parametro necessário para execução do script dentro do job
 Set-Location C:
@@ -37,7 +36,7 @@ ForEach($Inicial in $Iniciais){
 
 try{
 
- $Usrs = Get-ADObject -Filter {(objectClass -eq "contact") -and (cn -like $Inicial )} -Properties * | SELECT Name, DisplayName, mailNickname, mail,  CanonicalName, DistinguishedName,
+ $Usrs = Get-ADObject -Filter {(objectClass -eq "contact") -and (cn -like $Inicial )} -Properties * | Select-Object Name, DisplayName, mailNickname, mail,  CanonicalName, DistinguishedName,
     @{Name='Created';Expression={$_.Created.ToString("yyyy\/MM\/dd HH:mm:ss")}},
     @{Name='Deleted';Expression={$_.Deleted.ToString("yyyy\/MM\/dd HH:mm:ss")}},
     @{Name='Modified';Expression={$_.Modified.ToString("yyyy\/MM\/dd HH:mm:ss")}} -ErrorAction stop
