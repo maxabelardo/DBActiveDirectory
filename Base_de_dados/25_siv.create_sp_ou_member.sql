@@ -1,5 +1,7 @@
 
-
+CREATE PROCEDURE [siv].[sp_ou_member]
+as 
+BEGIN
 
 TRUNCATE TABLE [gld].[ou_member]
 
@@ -12,3 +14,5 @@ INSERT INTO  [gld].[ou_member]
            ,[Member]
            ,[SamAccountName])
 SELECT * FROM  [siv].[fc_ou_member]()
+
+END;
