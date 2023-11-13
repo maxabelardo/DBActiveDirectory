@@ -1,5 +1,5 @@
 
-CREATE TABLE [gld]].[ou_member](
+CREATE TABLE [gld].[ou_member](
 	[OU] [nvarchar](max) NULL,
 	[DistinguishedName] [nvarchar](max) NULL,
 	[Tipo] [nvarchar](20) NULL,
