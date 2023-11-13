@@ -12,7 +12,7 @@ Set-Location C:
 
 # Limpeza da tabela de STAGE que reseberá os dados brutos
  $SQLQueryDelete = "USE $SQLDatabase
-    TRUNCATE TABLE [AD].[STGADcontact]"
+    TRUNCATE TABLE [brz].[contact]"
 
 $SQLQuery1Output = Invoke-Sqlcmd -query $SQLQueryDelete -ServerInstance $SQLInstance
 
@@ -91,7 +91,7 @@ break
 
 #A variável "$SQLQuery" receberar o insert com os dados para ser executado no banco
 $SQLQuery = "USE $SQLDatabase
-INSERT INTO [AD].[STGADcontact]
+INSERT INTO [brz].[contact]
            ([Name],[DisplayName],[mailNickname],[mail]
            ,[CanonicalName],[DistinguishedName]
 		   ,[created],[Deleted],[Modified])

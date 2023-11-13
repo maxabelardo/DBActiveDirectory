@@ -12,7 +12,7 @@ Set-Location C:
 #Script:
 # Limpeza da tabela de STAGE que reseberá os dados brutos
  $SQLQueryDelete = "USE $SQLDatabase
-    TRUNCATE TABLE [AD].[STGADComputer]"
+    TRUNCATE TABLE [brz].[computer]"
     
 #Executando o script carragado na variável "$SQLQueryDelete"
 $SQLQuery1Output = Invoke-Sqlcmd -query $SQLQueryDelete -ServerInstance $SQLInstance
@@ -108,7 +108,7 @@ ForEach($Inicial in $Iniciais){
 
 #A variável "$SQLQuery" receberar o insert com os dados para ser executado no banco
 $SQLQuery = "USE $SQLDatabase
-INSERT INTO [AD].[STGADComputer]
+INSERT INTO [brz].[computer]
            ([SID],[Name],[DisplayName],[SamAccountName],[Description],[ObjectClass],[PrimaryGroup],[MemberOf]
            ,[OperatingSystem],[OperatingSystemHotfix],[OperatingSystemServicePack],[OperatingSystemVersion]
            ,[CanonicalName],[Enabled],[IPv4Address]

@@ -31,7 +31,7 @@ Tabelas:
 
 #### Scripts para criação das tabelas:
 
-- [00_create_shema_brz.sql](https://github.com/maxabelardo/DBActiveDirectory/blob/main/Base_de_dados/00_create_shema_brz.sql)
+- [00_create_shema.sql](https://github.com/maxabelardo/DBActiveDirectory/blob/main/Base_de_dados/00_create_shema.sql)
 - [01_create_brz_user.sql](https://github.com/maxabelardo/DBActiveDirectory/blob/main/Base_de_dados/01_create_brz_user.sql)
 - [02_create_brz_group.sql](https://github.com/maxabelardo/DBActiveDirectory/blob/main/Base_de_dados/02_create_brz_group.sql)
 - [03_create_brz_contact.sql](https://github.com/maxabelardo/DBActiveDirectory/blob/main/Base_de_dados/03_create_brz_contact.sql)
@@ -74,6 +74,9 @@ Objetos:
 - [14_gld.create_gpo.sql]()
 - [15_gld.create_ou.sql]()
 - [16_gld.create_domain_controller.sql]()
+- [17_gld.create_domain_controller.sql]()
+- [18_gld_create_ou_member.sql]()
+
 
 
 |Diagrama do schema gld|
