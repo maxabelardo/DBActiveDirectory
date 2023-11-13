@@ -76,5 +76,8 @@ Objetos:
 - [16_gld.create_domain_controller.sql]()
 
 
+|Diagrama do schema gld|
+|-|
+|![image](https://github.com/maxabelardo/DBActiveDirectory/blob/main/Imagens/diagrama_gld.png?raw=true)|
 
 
