@@ -46,18 +46,28 @@ Tabelas:
 Objetos:
 |Schema |Objetos | Tipo |Descrição |
 |-------|--------|------|----------|
-|siv | user_account_control | Tabela | Toda conta de usuário tem um estatus definido pelo campo <b>"userAccountControl"</b> que pode ser: ativo, desativada ou com senha vencida, será nesta tabela que id deste parâmetro seram armazenados.|
-|siv | sp_group_member  | Stored Procedures | Separa todos os grupos com usuários ligado, armazena os usuários na tabela "gld.group_member_user"|
-|siv | fc_return_member | Function | Quebra o vetor com o nome dos usuários que estão ligado ao grupo.|
-|siv | fc_ou_member  | Function | é usado para separá todos os OU com objetos contido nela.|
-|siv | fc_return_ou_objetos | Function | Quebra o vetor com o nome dos objetos que estão ligado a OU.| 
-|gld |user | Tabela |  Usuários e os grupos do qual o usuários faz parte.|
-|gld |group | Tabela |  Grupos e usuários do grupo.|
-|gld |contact | Tabela |  Contatos. |
-|gld |computer | Tabela |  São os computadore, desktop, servidore cadastrados no AD.|
-|gld |gpo | Tabela |  Group Policy é um conjunto de regras que controlam o ambiente de trabalho de contas de usuário e contas de    computador.|
-|gld |ou | Tabela |  Unidades Organizacionais em um domínio gerenciado "pasta" permitem agrupar logicamente objetos, como contas de usuário, contas de serviço ou contas de computador.|
-|gld |domain_controller | Tabela | É um controlador de domínio, do inglês domain controller, é um servidor que responde à requisições seguras de autenticação dentro de um domínio Windows.|
+|siv |user_account_control | Tabela | Toda conta de usuário tem um estatus definido pelo campo <b>"userAccountControl"</b> que pode ser: ativo, desativada ou com senha vencida, será nesta tabela que id deste parâmetro seram armazenados.|
+|siv |sp_group_member      | Stored Procedures | Separa todos os grupos com usuários ligado, armazena os usuários na tabela "gld.group_member"|
+|siv |fc_return_member     | Function | Quebra o vetor com o nome dos usuários que estão ligado ao grupo.|
+|siv |sp_ou_member         | Stored Procedures |Separa todos os usuários ligado a OU e armazena os usuários na tabela "gld.ou_member"   
+|siv |fc_ou_member         | Function | é usado para separá todos os OU com objetos contido nela.|
+|siv |fc_return_ou_objetos | Function | Quebra o vetor com o nome dos objetos que estão ligado a OU.| 
+|siv |sp_computer          | Stored Procedures |Migra os dados do schema siv para gld.
+|siv |sp_contact           | Stored Procedures |Migra os dados do schema siv para gld.
+|siv |sp_domain_controller | Stored Procedures |Migra os dados do schema siv para gld.
+|siv |sp_gpo               | Stored Procedures |Migra os dados do schema siv para gld.
+|siv |sp_group             | Stored Procedures |Migra os dados do schema siv para gld.
+|siv |sp_ou                | Stored Procedures |Migra os dados do schema siv para gld.
+|siv |sp_user              | Stored Procedures |Migra os dados do schema siv para gld.
+|gld |user                 | Tabela |  Usuários e os grupos do qual o usuários faz parte.|
+|gld |group                | Tabela |  Grupos e usuários do grupo.|
+|gld |contact              | Tabela |  Contatos. |
+|gld |computer             | Tabela |  São os computadore, desktop, servidore cadastrados no AD.|
+|gld |gpo                  | Tabela |  Group Policy é um conjunto de regras que controlam o ambiente de trabalho de contas de usuário e contas de    computador.|
+|gld |ou                   | Tabela |  Unidades Organizacionais em um domínio gerenciado "pasta" permitem agrupar logicamente objetos, como contas de usuário, contas de serviço ou contas de computador.|
+|gld |domain_controller    | Tabela | É um controlador de domínio, do inglês domain controller, é um servidor que responde à requisições seguras de autenticação dentro de um domínio Windows.|
+|gld |group_member         | Tabela | Faz a junção entre os usuários e o grupo  |
+|gld |ou_member            | Tabela | Faz a junção entre os usuários e a OU |
 
 
 #### Scripts para criação das tabelas, fuction e stored procedure:
