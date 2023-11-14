@@ -53,6 +53,6 @@ Softwares que seram utilizados neste projeto:
 
 + [Desenvolvimento da base de dados.](https://github.com/maxabelardo/DBActiveDirectory/blob/main/Base_de_dados/README.md)
 + [Desenvolvimento dos scripts de extração em PowerShell.](https://github.com/maxabelardo/DBActiveDirectory/blob/main/script_extracao/README.md)
-+ Executar o tratamento dos dados.
++ [Executar o tratamento dos dados.](https://github.com/maxabelardo/DBActiveDirectory/blob/main/tratamento_de_dados/README.md)
 + Automatizar a extração dos dados utilizando o MS SQL Agent.
 + Desenvolvimento dos paineis no Power BI Desktop.
