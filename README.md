@@ -2,6 +2,7 @@
 
 Hoje já existe várias ferramentas que auxiliam o administrador do Active Directory em sua gestão e no desenvolvimento de relatórios ou gráficos, porém os melhores softwares são pagos o que para muitas empresas é o principal problema. Este projeto tem o objetivo de ajudar aqueles que gostariam de ter as  informações do seu AD se ter que ficar rodando script, criando planilha, cruzando dados em Excel, toda vez que vão montando relatórios do seu AD, ou so estão querendo  aprender a automatizar a extração e montagem dos relatórios do Active Directory.
 
+* ![image](https://github.com/maxabelardo/DBActiveDirectory/blob/main/Imagens/pwb_user.PNG)
 
 Softwares que seram utilizados neste projeto:
 |Software |Descrição|
