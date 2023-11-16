@@ -1,7 +1,7 @@
 # Desenvolvimento dos scripts de extração em PowerShell.
 
 
-Os scripts seram devididos em etapas:
+Os scripts serão divididos em etapas:
 - Limpeza do stager que receberá os dados.
 - Montagem do array para busca dos objetos.
 - Execução do loop com o array
@@ -20,7 +20,7 @@ Cada script deverá extrair um objeto do Active Directory.
 |[ExportADUser.ps1](https://github.com/maxabelardo/DBActiveDirectory/blob/main/script_extracao/ExportADUser.ps1) | Extrair os usuários. |  brz.user
 |[ExportADcomputer.ps1](https://github.com/maxabelardo/DBActiveDirectory/blob/main/script_extracao/ExportADcomputer.ps1) | Extrair os computadores. | brz.computer
 |[ExportADcontact.ps1](https://github.com/maxabelardo/DBActiveDirectory/blob/main/script_extracao/ExportADcontact.ps1) | Extrair os contatos. | brz.contact
-|[ExportSTGADDomainController.ps1](https://github.com/maxabelardo/DBActiveDirectory/blob/main/script_extracao/ExportSTGADDomainController.ps1) | Extrair os controladores de dominio. | brz.domain_controller
+|[ExportSTGADDomainController.ps1](https://github.com/maxabelardo/DBActiveDirectory/blob/main/script_extracao/ExportSTGADDomainController.ps1) | Extrair os controladores de domínio. | brz.domain_controller
 
 
 
