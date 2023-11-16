@@ -1,18 +1,11 @@
 # Desenvolvimento da base de dados.
 
-Neste projeto vou trazer um pouco da estrutuda do Data Lake, será utilizada três camadas de dados.
+Neste projeto vou dividir a base em três schemas "Broze","Silver" e "Glod"
 
-<b>Camada Bronze:</b>  Nesta camada, os dados são armazenados no mesmo formato que existem no sistema de origem.
-
-<b>Camada Prata:</b> Dentro desta camada, os dados limpos e transformados são armazenados. Por exemplo, considere lidar com valores vazios (nulos), definir convenções de nomenclatura de colunas e manter os dados em um formato adequado (CSV/Parquet/JSON/etc.). É importante aplicar os mesmos padrões em todos os conjuntos de dados da camada Silver, pois isso garante que os usuários entendam o que esperar dos dados no Data Lake.
-
-<b>Camada Dourada:</b> Armazenamos todos os produtos finais (voltados para o cliente) nesta camada. Se necessário, os conjuntos de dados são unidos e/ou agregados.
-
-A base de dados será divida em "schema" esquemas.
-
-+ brz: os dados seram armazenados igual a fonte de origem.
-+ siv: objetos de bancos utilizados para o tratamento dos dados.
-+ gld: views e tabelas com os dados finalizados e prontos para serem utilizados.
+#### "Schema" esquemas:
++ <b>Bronze - brz</b>: os dados seram armazenados igual a fonte de origem.
++ <b>Silver - siv</b>: objetos de bancos utilizados para o tratamento dos dados.
++ <b>Gold - gld</b>: views e tabelas com os dados finalizados e prontos para serem utilizados.
 
 Na estrutura da base de dados não vamos utilizar chavem primeria auto-incremental pois a cardinalizada da base será fornecida pelo Active Directory atravez da <b>"SID"</b> ou <b>"ID"</b>  
 
