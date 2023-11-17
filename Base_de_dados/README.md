@@ -1,30 +1,23 @@
 # Desenvolvimento da base de dados.
 
-Neste projeto vou trazer um pouco da estrutuda do Data Lake, será utilizada três camadas de dados.
+Neste projeto vou dividir a base em três schemas "Bronze","Silver" e "Glod"
 
-<b>Camada Bronze:</b>  Nesta camada, os dados são armazenados no mesmo formato que existem no sistema de origem.
+#### "Schema" esquemas:
++ <b>Bronze - brz</b>: os dados seram armazenados igual a fonte de origem.
++ <b>Silver - siv</b>: objetos de bancos utilizados para o tratamento dos dados.
++ <b>Gold - gld</b>: views e tabelas com os dados finalizados e prontos para serem utilizados.
 
-<b>Camada Prata:</b> Dentro desta camada, os dados limpos e transformados são armazenados. Por exemplo, considere lidar com valores vazios (nulos), definir convenções de nomenclatura de colunas e manter os dados em um formato adequado (CSV/Parquet/JSON/etc.). É importante aplicar os mesmos padrões em todos os conjuntos de dados da camada Silver, pois isso garante que os usuários entendam o que esperar dos dados no Data Lake.
-
-<b>Camada Dourada:</b> Armazenamos todos os produtos finais (voltados para o cliente) nesta camada. Se necessário, os conjuntos de dados são unidos e/ou agregados.
-
-A base de dados será divida em "schema" esquemas.
-
-+ brz: os dados seram armazenados igual a fonte de origem.
-+ siv: objetos de bancos utilizados para o tratamento dos dados.
-+ gld: views e tabelas com os dados finalizados e prontos para serem utilizados.
-
-Na estrutura da base de dados não vamos utilizar chavem primeria auto-incremental pois a cardinalizada da base será fornecida pelo Active Directory atravez da <b>"SID"</b> ou <b>"ID"</b>  
+Na estrutura da base de dados não vamos utilizar chave primeira com autoincremento pois a cardinalidade da base será fornecida pelo Active Directory através da <b>"SID"</b> ou <b>"ID"</b>  
 
 ###  Schema brz.
 
 Tabelas:
 |Schema |Tabelas |Descrição |
 |----------------------|-------------------|-------------|
-|brz |user | Usuários e os grupos do qual o usuários faz parte.|
+|brz |user | Usuários e os grupos do qual os usuários faz parte.|
 |brz |group | Grupos e usuários do grupo.|
 |brz |contact | Contatos. |
-|brz |computer | São os computadore, desktop, servidore cadastrados no AD.|
+|brz |computer | São os computadores, desktop, servidores cadastrados no AD.|
 |brz |gpo | Group Policy é um conjunto de regras que controlam o ambiente de trabalho de contas de usuário e contas de    computador.|
 |brz |ou | Unidades Organizacionais em um domínio gerenciado "pasta" permitem agrupar logicamente objetos, como contas de usuário, contas de serviço ou contas de computador.|
 |brz |domain_controller |É um controlador de domínio, do inglês domain controller, é um servidor que responde à requisições seguras de autenticação dentro de um domínio Windows.|
@@ -46,11 +39,11 @@ Tabelas:
 Objetos:
 |Schema |Objetos | Tipo |Descrição |
 |-------|--------|------|----------|
-|siv |user_account_control | Tabela | Toda conta de usuário tem um estatus definido pelo campo <b>"userAccountControl"</b> que pode ser: ativo, desativada ou com senha vencida, será nesta tabela que id deste parâmetro seram armazenados.|
-|siv |sp_group_member      | Stored Procedures | Separa todos os grupos com usuários ligado, armazena os usuários na tabela "gld.group_member"|
+|siv |user_account_control | Tabela | Toda conta de usuário tem um status definido pelo campo <b>"userAccountControl"</b> que pode ser: ativo, desativada ou com senha vencida, será nesta tabela que id deste parâmetro serão armazenados.|
+|siv |sp_group_member      | Stored Procedures | separar todos os grupos com usuários ligado, armazena os usuários na tabela "gld.group_member"|
 |siv |fc_return_member     | Function | Quebra o vetor com o nome dos usuários que estão ligado ao grupo.|
 |siv |sp_ou_member         | Stored Procedures |Separa todos os usuários ligado a OU e armazena os usuários na tabela "gld.ou_member"   
-|siv |fc_ou_member         | Function | é usado para separá todos os OU com objetos contido nela.|
+|siv |fc_ou_member         | Function | é usado para separar todos os OU com objetos contido nela.|
 |siv |fc_return_ou_objetos | Function | Quebra o vetor com o nome dos objetos que estão ligado a OU.| 
 |siv |sp_computer          | Stored Procedures |Migra os dados do schema siv para gld.
 |siv |sp_contact           | Stored Procedures |Migra os dados do schema siv para gld.
@@ -59,10 +52,10 @@ Objetos:
 |siv |sp_group             | Stored Procedures |Migra os dados do schema siv para gld.
 |siv |sp_ou                | Stored Procedures |Migra os dados do schema siv para gld.
 |siv |sp_user              | Stored Procedures |Migra os dados do schema siv para gld.
-|gld |user                 | Tabela |  Usuários e os grupos do qual o usuários faz parte.|
+|gld |user                 | Tabela |  Usuários e os grupos do qual os usuários faz parte.|
 |gld |group                | Tabela |  Grupos e usuários do grupo.|
 |gld |contact              | Tabela |  Contatos. |
-|gld |computer             | Tabela |  São os computadore, desktop, servidore cadastrados no AD.|
+|gld |computer             | Tabela |  São os computadore, desktop, servidores cadastrados no AD.|
 |gld |gpo                  | Tabela |  Group Policy é um conjunto de regras que controlam o ambiente de trabalho de contas de usuário e contas de    computador.|
 |gld |ou                   | Tabela |  Unidades Organizacionais em um domínio gerenciado "pasta" permitem agrupar logicamente objetos, como contas de usuário, contas de serviço ou contas de computador.|
 |gld |domain_controller    | Tabela | É um controlador de domínio, do inglês domain controller, é um servidor que responde à requisições seguras de autenticação dentro de um domínio Windows.|
@@ -70,7 +63,7 @@ Objetos:
 |gld |ou_member            | Tabela | Faz a junção entre os usuários e a OU |
 
 
-#### Scripts para criação das tabelas, fuction e stored procedure:
+#### Scripts para criação das tabelas, function e stored procedure:
 
 - [20_siv.create_user_account_control.sql](https://github.com/maxabelardo/DBActiveDirectory/blob/main/Base_de_dados/20_siv.create_user_account_control.sql)
 - [21_siv.create_fc_return_member.sql](https://github.com/maxabelardo/DBActiveDirectory/blob/main/Base_de_dados/21_siv.create_fc_return_member.sql)
